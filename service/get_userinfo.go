@@ -23,11 +23,13 @@ func GetUserinfoHandler(w http.ResponseWriter, r *http.Request) {
 		decoder := json.NewDecoder(r.Body)
 		body := make(map[string]interface{})
 		if err := decoder.Decode(&body); err != nil {
+			fmt.Println("decode error")
 			return
 		}
 		defer r.Body.Close()
 		code, ok := body["code"]
 		if !ok {
+			fmt.Println("缺少 code 参数")
 			res.ErrorMsg = "缺少 code 参数"
 			return
 		}
