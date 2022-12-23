@@ -17,7 +17,7 @@ type userInfoResult struct {
 // CounterHandler 计数器接口
 func GetUserinfoHandler(w http.ResponseWriter, r *http.Request) {
 	res := &userInfoResult{}
-
+	fmt.Println("GetUserinfoHandler")
 	if r.Method == http.MethodPost {
 
 		decoder := json.NewDecoder(r.Body)
